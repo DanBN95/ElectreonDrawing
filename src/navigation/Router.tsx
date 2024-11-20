@@ -1,13 +1,17 @@
 import React from 'react';
 import BottomTabNavigator from './bottom-tabs/BottomTabNavigator';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
+import Header from '@src/components/Header';
 
 const Router = () => {
   const theme = useTheme();
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.onSecondary }]}>
-      <BottomTabNavigator />
+    <SafeAreaView style={[styles.safeAreaContainer, { backgroundColor: theme.colors.onSecondary }]}>
+      <View style={styles.container}>
+        <Header />
+        <BottomTabNavigator />
+      </View>
     </SafeAreaView>
   );
 };
@@ -15,6 +19,9 @@ const Router = () => {
 export default Router;
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
   },
