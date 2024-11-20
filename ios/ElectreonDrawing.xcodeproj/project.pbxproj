@@ -15,6 +15,7 @@
 		1469FABD1291AA55581E50AA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-ElectreonDrawing-ElectreonDrawingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ElectreonDrawing-ElectreonDrawingTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		28033DEA72D54E8AAA0A3B60 /* AvertaDemoPECuttedDemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27840BD07F3A46659CC61A09 /* AvertaDemoPECuttedDemo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ElectreonDrawing/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig"; path = "Target Support Files/Pods-ElectreonDrawing-ElectreonDrawingTests/Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		27840BD07F3A46659CC61A09 /* AvertaDemoPECuttedDemo.ttf */ = {isa = PBXFileReference; name = "AvertaDemoPECuttedDemo.ttf"; path = "../assets/fonts/AvertaDemoPECuttedDemo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				77AB7EDB9BCD472CBD1EF997 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -150,6 +153,15 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		77AB7EDB9BCD472CBD1EF997 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				27840BD07F3A46659CC61A09 /* AvertaDemoPECuttedDemo.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -247,6 +259,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				1469FABD1291AA55581E50AA /* PrivacyInfo.xcprivacy in Resources */,
+				28033DEA72D54E8AAA0A3B60 /* AvertaDemoPECuttedDemo.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
