@@ -1,8 +1,16 @@
+import Providers from '@src/app/Providers';
+import ThemeContextProvider from '@src/context/ThemeContext';
+import Router from '@src/navigation/Router';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 
 function App(): React.JSX.Element {
-  return <SafeAreaView></SafeAreaView>;
+  return (
+    <ThemeContextProvider>
+      <Providers>
+        <Router />
+      </Providers>
+    </ThemeContextProvider>
+  );
 }
 
 export default App;
