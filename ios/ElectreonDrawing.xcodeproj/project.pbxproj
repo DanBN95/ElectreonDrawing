@@ -48,8 +48,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-ElectreonDrawing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElectreonDrawing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ElectreonDrawing/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig"; path = "Target Support Files/Pods-ElectreonDrawing-ElectreonDrawingTests/Pods-ElectreonDrawing-ElectreonDrawingTests.release.xcconfig"; sourceTree = "<group>"; };
+		A973CB9B13EA4C4293960B29 /* GunnyReWritten.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GunnyReWritten.ttf; path = ../assets/fonts/GunnyReWritten.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		A973CB9B13EA4C4293960B29 /* GunnyReWritten.ttf */ = {isa = PBXFileReference; name = "GunnyReWritten.ttf"; path = "../assets/fonts/GunnyReWritten.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

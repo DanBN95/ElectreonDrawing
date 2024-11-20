@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import RoundLetterArea from '@src/components/RoundLetterArea';
 
 const DrawingScreen = () => {
   return (
     <View>
-      <Text>DrawingScreen</Text>
+      <RoundLetterArea />
     </View>
   );
 };
