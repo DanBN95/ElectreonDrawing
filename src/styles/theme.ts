@@ -21,6 +21,8 @@ export const lightTheme: LightTheme = {
     ...lightColors,
     ...DefaultThemeLight.colors,
     onPrimary: lightColors.primary,
+    onSecondary: lightColors.secondary,
+    background: lightColors.white,
   },
 };
 
@@ -31,6 +33,8 @@ export const darkTheme: DarkTheme = {
     ...darkColors,
     ...DefaultThemeDark.colors,
     onPrimary: darkColors.primary,
+    onSecondary: lightColors.secondary,
+    background: lightColors.white,
   },
 };
 
