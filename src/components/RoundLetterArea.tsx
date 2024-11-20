@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 250,
+    flex: 3,
   },
   textContainer: {
     justifyContent: 'center',
