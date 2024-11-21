@@ -3,6 +3,7 @@ import BottomTabNavigator from './bottom-tabs/BottomTabNavigator';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import Header from '@src/components/Header';
+import Toast from 'react-native-toast-message';
 
 const Router = () => {
   const theme = useTheme();
@@ -12,6 +13,7 @@ const Router = () => {
         <Header />
         <BottomTabNavigator />
       </View>
+      <Toast />
     </SafeAreaView>
   );
 };

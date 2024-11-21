@@ -1,17 +1,55 @@
-import { StyleSheet, View } from 'react-native';
-import React, { useCallback, useState } from 'react';
+import { Alert, StyleSheet, View } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
 import RoundLetterArea from '@src/components/RoundLetterArea';
 import Canvas from '@src/components/Canvas';
-import { generateRandomLetter } from '@src/utils';
+import { generateRandomLetter, showToast } from '@src/utils';
+import { useUploadImageMutation } from '@src/features/queries/ocr-query';
+import { useDispatch } from 'react-redux';
+import { updateDrawingSession } from '@src/features/slices/summaryResultsSlice';
 
 const DrawingScreen = () => {
+  const dispatch = useDispatch();
   const [letter, setLetter] = useState<string>(generateRandomLetter());
+  const [uploadImage, { data, isLoading, error }] = useUploadImageMutation();
 
-  const handleOCR = useCallback(async (base64: string) => {}, []);
+  const handleOCR = useCallback(
+    async (base64: string) => {
+      await uploadImage(base64).unwrap();
+    },
+    [uploadImage],
+  );
+
+  const updateRecognitionResult = (attemptOutcome: 'success' | 'error') => {
+    dispatch(
+      updateDrawingSession({
+        timestamp: new Date().toISOString(),
+        attemptedLetter: letter,
+        attemptOutcome,
+      }),
+    );
+  };
+
+  useEffect(() => {
+    if (data) {
+      if (data?.data?.trim() === letter.trim()) {
+        showToast('success');
+        updateRecognitionResult('success');
+        setLetter(generateRandomLetter());
+      } else {
+        showToast('error');
+        updateRecognitionResult('error');
+      }
+    }
+
+    if (error) {
+      console.error('OCR Upload Error:', error);
+      Alert.alert('Something went wrong', 'Please try again later');
+    }
+  }, [data, error]);
   return (
     <View style={styles.container}>
       <RoundLetterArea {...{ letter, setLetter }} />
-      <Canvas OCRTrigger={handleOCR} />
+      <Canvas OCRTrigger={handleOCR} isLoading={isLoading} />
     </View>
   );
 };

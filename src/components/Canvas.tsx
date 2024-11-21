@@ -12,9 +12,10 @@ import BaseText from './BaseText';
 
 type CanvasProps = {
   OCRTrigger: (base64: string) => void;
+  isLoading?: boolean;
 };
 
-const Canvas = ({ OCRTrigger }: CanvasProps) => {
+const Canvas = ({ OCRTrigger, isLoading }: CanvasProps) => {
   const theme = useAppTheme();
   const svgRef = useRef(null);
   const { pan, animatedProps, onUndo, onRemoveEntirely } = useCanvasGesture();
@@ -57,7 +58,7 @@ const Canvas = ({ OCRTrigger }: CanvasProps) => {
         </View>
       </Animated.View>
       <View style={styles.buttonContainer}>
-        <Button onPress={onCapture} icon="camera">
+        <Button onPress={onCapture} icon="camera" loading={isLoading}>
           <BaseText variant="subTitleTwo">Submit</BaseText>
         </Button>
       </View>
