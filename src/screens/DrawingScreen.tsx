@@ -1,8 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import React, { useCallback, useEffect, useState } from 'react';
 import RoundLetterArea from '@src/components/RoundLetterArea';
 import Canvas from '@src/components/Canvas';
-import { generateRandomLetter } from '@src/utils';
+import { generateRandomLetter, showToast } from '@src/utils';
 import { useUploadImageMutation } from '@src/features/queries/ocr-query';
 
 const DrawingScreen = () => {
@@ -11,11 +11,7 @@ const DrawingScreen = () => {
 
   const handleOCR = useCallback(
     async (base64: string) => {
-      try {
-        await uploadImage(base64).unwrap();
-      } catch (err) {
-        console.log('Something went wrong with uploading image', err);
-      }
+      await uploadImage(base64).unwrap();
     },
     [uploadImage],
   );
@@ -23,15 +19,16 @@ const DrawingScreen = () => {
   useEffect(() => {
     if (data) {
       if (data?.data?.trim() === letter.trim()) {
-        setLetter(generateRandomLetter()); // Generate a new letter
+        showToast('success');
+        setLetter(generateRandomLetter());
       } else {
-        console.log('try again letter did not match');
-        // showToast('Try Again', 'Letter did not match.', 'error');
+        showToast('error');
       }
     }
 
     if (error) {
       console.error('OCR Upload Error:', error);
+      Alert.alert('Something went wrong', 'Please try again later');
     }
   }, [data, data?.data, error, letter]);
   return (
