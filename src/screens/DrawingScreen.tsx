@@ -4,8 +4,11 @@ import RoundLetterArea from '@src/components/RoundLetterArea';
 import Canvas from '@src/components/Canvas';
 import { generateRandomLetter, showToast } from '@src/utils';
 import { useUploadImageMutation } from '@src/features/queries/ocr-query';
+import { useDispatch } from 'react-redux';
+import { updateDrawingSession } from '@src/features/slices/summaryResultsSlice';
 
 const DrawingScreen = () => {
+  const dispatch = useDispatch();
   const [letter, setLetter] = useState<string>(generateRandomLetter());
   const [uploadImage, { data, isLoading, error }] = useUploadImageMutation();
 
@@ -16,13 +19,25 @@ const DrawingScreen = () => {
     [uploadImage],
   );
 
+  const updateRecognitionResult = (attemptOutcome: 'success' | 'error') => {
+    dispatch(
+      updateDrawingSession({
+        timestamp: new Date().toISOString(),
+        attemptedLetter: letter,
+        attemptOutcome,
+      }),
+    );
+  };
+
   useEffect(() => {
     if (data) {
       if (data?.data?.trim() === letter.trim()) {
         showToast('success');
+        updateRecognitionResult('success');
         setLetter(generateRandomLetter());
       } else {
         showToast('error');
+        updateRecognitionResult('error');
       }
     }
 
@@ -30,7 +45,7 @@ const DrawingScreen = () => {
       console.error('OCR Upload Error:', error);
       Alert.alert('Something went wrong', 'Please try again later');
     }
-  }, [data, data?.data, error, letter]);
+  }, [data, error]);
   return (
     <View style={styles.container}>
       <RoundLetterArea {...{ letter, setLetter }} />

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { optCharRecognitionApi } from '@src/features/queries/ocr-query';
+import summaryResultsReducer from '@src/features/slices/summaryResultsSlice';
 
 export const store = configureStore({
   reducer: {
     [optCharRecognitionApi.reducerPath]: optCharRecognitionApi.reducer,
+    summaryResults: summaryResultsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(optCharRecognitionApi.middleware),
