@@ -3,6 +3,7 @@ export type ColorsType = {
   secondary: string;
   white: string;
   transparent: string;
+  boardBackground: string;
 };
 
 export const lightColors: ColorsType = {
@@ -10,6 +11,7 @@ export const lightColors: ColorsType = {
   secondary: '#fce6bd',
   white: '#FFFFFF',
   transparent: 'transparent',
+  boardBackground: '#eaeded',
 };
 
 export const darkColors: ColorsType = {
@@ -17,4 +19,5 @@ export const darkColors: ColorsType = {
   secondary: '#fce6bd',
   white: '#FFFFFF',
   transparent: 'transparent',
+  boardBackground: '#eaeded',
 };

@@ -4,8 +4,8 @@ export type CustomTextType =
   | 'header'
   | 'titleOne'
   | 'titleTwo'
-  | 'titleThree'
   | 'subTitleOne'
+  | 'subTitleTwo'
   | 'bodyOne'
   | 'bodyTwo';
 
