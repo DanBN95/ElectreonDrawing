@@ -1,21 +1,28 @@
 import { StyleSheet, View } from 'react-native';
 import React, { useRef } from 'react';
-import { Button } from 'react-native-paper';
+import { Button, IconButton } from 'react-native-paper';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import AnimatedSvg from './animated-components/AnimatedSvg';
 import AnimatedPath from './animated-components/AnimatedPath';
 import { useCanvasGesture } from '@src/hooks/useCanvasGesture';
+import useAppTheme from '@src/hooks/useAppTheme';
 
 const Canvas = () => {
+  const theme = useAppTheme();
   const svgRef = useRef(null);
   const { pan, animatedProps } = useCanvasGesture();
 
   return (
     <View style={styles.container}>
-      <GestureDetector gesture={pan}>
-        <Animated.View style={styles.board}>
-          <AnimatedSvg ref={svgRef} width={300} height={300} style={styles.svgCanvas}>
+      <Animated.View style={styles.board}>
+        <GestureDetector gesture={pan}>
+          <AnimatedSvg
+            ref={svgRef}
+            width={'100%'}
+            height={'100%'}
+            style={{ backgroundColor: theme.colors.boardBackground }}
+          >
             <AnimatedPath
               animatedProps={animatedProps}
               fill="transparent"
@@ -23,10 +30,13 @@ const Canvas = () => {
               strokeWidth="3"
             />
           </AnimatedSvg>
-        </Animated.View>
-      </GestureDetector>
+        </GestureDetector>
+        <View style={styles.deleteButton}>
+          <IconButton icon="undo" size={24} onPress={() => console.log('Icon Pressed')} />
+        </View>
+      </Animated.View>
       <View style={styles.buttonContainer}>
-        <Button>Submit</Button>
+        <Button icon="camera">Submit</Button>
       </View>
     </View>
   );
@@ -44,8 +54,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 8,
   },
-  svgCanvas: {
-    // backgroundColor: 'green',
+  deleteButton: {
+    position: 'absolute',
+    top: 0,
+    right: 20,
   },
   buttonContainer: {
     flex: 1,
