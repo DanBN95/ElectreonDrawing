@@ -41,5 +41,13 @@ export const useCanvasGesture = () => {
       pathPoints.value = updatedPaths;
     });
 
-  return { pan, animatedProps };
+  const onUndo = () => {
+    pathPoints.value = pathPoints.value.slice(0, -1);
+  };
+
+  const onRemoveEntirely = () => {
+    pathPoints.value = [];
+  };
+
+  return { pan, animatedProps, onUndo, onRemoveEntirely };
 };

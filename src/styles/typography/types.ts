@@ -5,6 +5,7 @@ export type CustomTextType =
   | 'titleOne'
   | 'titleTwo'
   | 'subTitleOne'
+  | 'subTitleTwo'
   | 'bodyOne'
   | 'bodyTwo';
 

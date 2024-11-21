@@ -1,13 +1,17 @@
 import { StyleSheet, View } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import BaseText from './BaseText';
 import { generateRandomLetter } from '@src/utils';
 import { Button } from 'react-native-paper';
 import useAppTheme from '@src/hooks/useAppTheme';
 
-const RoundLetterArea = () => {
+type RoundLetterAreaProps = {
+  letter: string;
+  setLetter: (char: string) => void;
+};
+
+const RoundLetterArea = ({ letter, setLetter }: RoundLetterAreaProps) => {
   const theme = useAppTheme();
-  const [letter, setLetter] = useState<string>(generateRandomLetter());
 
   const handleRoundLetter = () => setLetter(generateRandomLetter());
 

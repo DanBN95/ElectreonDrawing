@@ -21,9 +21,15 @@ const fontConfig = {
   } as MD3Type,
   subTitleOne: {
     fontFamily: 'Averta Demo PE Cutted Demo',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '400',
-    lineHeight: 20,
+    lineHeight: 24,
+  } as MD3Type,
+  subTitleTwo: {
+    fontFamily: 'Gunny Rewritten',
+    fontSize: 20,
+    fontWeight: '400',
+    lineHeight: 24,
   } as MD3Type,
   bodyOne: {
     fontFamily: 'Averta Demo PE Cutted Demo',
