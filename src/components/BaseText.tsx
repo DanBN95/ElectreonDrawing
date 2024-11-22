@@ -23,7 +23,6 @@ const BaseText = ({
       {...props}
       variant={variant}
       style={[{ backgroundColor: theme.colors.transparent }, style]}
-      //   selectionColor={theme.colors.cursorColor}
     >
       {children}
     </CustomText>
