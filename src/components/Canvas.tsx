@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import React, { memo, useRef } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 import { GestureDetector } from 'react-native-gesture-handler';
@@ -29,8 +29,8 @@ const Canvas = ({ OCRTrigger, isLoading }: CanvasProps) => {
       });
       OCRTrigger(base64);
     } catch (err) {
-      //TODO: Add error handling
       console.log('capture image went wrong', err);
+      Alert.alert('Something went wrong', 'Please try again later');
     }
   };
 
@@ -58,7 +58,14 @@ const Canvas = ({ OCRTrigger, isLoading }: CanvasProps) => {
         </View>
       </Animated.View>
       <View style={styles.buttonContainer}>
-        <Button onPress={onCapture} icon="camera" loading={isLoading}>
+        <Button
+          mode="contained"
+          onPress={onCapture}
+          loading={isLoading}
+          style={{ backgroundColor: theme.colors.onPrimary }}
+          labelStyle={{ color: theme.colors.background }}
+          rippleColor={theme.colors.rippleColorButton}
+        >
           <BaseText variant="subTitleTwo">Submit</BaseText>
         </Button>
       </View>
@@ -89,5 +96,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+    paddingHorizontal: 48,
+    paddingTop: 8,
   },
 });

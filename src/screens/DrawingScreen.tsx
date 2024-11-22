@@ -32,7 +32,7 @@ const DrawingScreen = () => {
 
   useEffect(() => {
     if (data) {
-      if (data?.data?.trim() === letter.trim()) {
+      if (data?.data?.trim() === letter?.trim()) {
         showToast('success');
         updateRecognitionResult('success', data?.id);
         setLetter(generateRandomLetter());
@@ -49,7 +49,7 @@ const DrawingScreen = () => {
   }, [data, error]);
   return (
     <View style={styles.container}>
-      <RoundLetterArea {...{ letter, setLetter }} />
+      <RoundLetterArea {...{ letter, setLetter }} raffleDisabled={isLoading} />
       <Canvas OCRTrigger={handleOCR} isLoading={isLoading} />
     </View>
   );
