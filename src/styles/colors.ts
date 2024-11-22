@@ -4,6 +4,9 @@ export type ColorsType = {
   white: string;
   transparent: string;
   boardBackground: string;
+  sectionBorderColor: string;
+  pieChartFullCircleBg: string;
+  pieChartFillCircleBg: string;
 };
 
 export const lightColors: ColorsType = {
@@ -12,6 +15,9 @@ export const lightColors: ColorsType = {
   white: '#FFFFFF',
   transparent: 'transparent',
   boardBackground: '#eaeded',
+  sectionBorderColor: '#d5dbdb',
+  pieChartFullCircleBg: '#D3D3D3',
+  pieChartFillCircleBg: '#f9c680',
 };
 
 export const darkColors: ColorsType = {
@@ -20,4 +26,7 @@ export const darkColors: ColorsType = {
   white: '#FFFFFF',
   transparent: 'transparent',
   boardBackground: '#eaeded',
+  sectionBorderColor: '#d5dbdb',
+  pieChartFullCircleBg: '#D3D3D3',
+  pieChartFillCircleBg: '#f9c680',
 };
