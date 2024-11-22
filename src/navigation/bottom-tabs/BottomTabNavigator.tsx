@@ -16,10 +16,7 @@ const CustomCenterButton = ({
 }) => {
   return (
     <View style={[styles.customButtonContainer, { borderColor, backgroundColor }]}>
-      <Image
-        source={require('@src/../assets/images/app-icon.png')} // Replace with your image path
-        style={styles.customIcon}
-      />
+      <Image source={require('@src/../assets/images/app-icon.png')} style={styles.customIcon} />
     </View>
   );
 };

@@ -7,6 +7,7 @@ export type ColorsType = {
   sectionBorderColor: string;
   pieChartFullCircleBg: string;
   pieChartFillCircleBg: string;
+  rippleColorButton: string;
 };
 
 export const lightColors: ColorsType = {
@@ -18,6 +19,7 @@ export const lightColors: ColorsType = {
   sectionBorderColor: '#d5dbdb',
   pieChartFullCircleBg: '#D3D3D3',
   pieChartFillCircleBg: '#f9c680',
+  rippleColorButton: 'rgba(255, 255, 255, 0.3)',
 };
 
 export const darkColors: ColorsType = {
@@ -29,4 +31,5 @@ export const darkColors: ColorsType = {
   sectionBorderColor: '#d5dbdb',
   pieChartFullCircleBg: '#D3D3D3',
   pieChartFillCircleBg: '#f9c680',
+  rippleColorButton: 'rgba(255, 255, 255, 0.3)',
 };
