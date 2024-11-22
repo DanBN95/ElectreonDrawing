@@ -1,11 +1,11 @@
 import { Alert, StyleSheet, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
-import RoundLetterArea from '@src/components/RoundLetterArea';
 import Canvas from '@src/components/Canvas';
 import { generateRandomLetter, showToast } from '@src/utils';
 import { useUploadImageMutation } from '@src/features/queries/ocr-query';
 import { useDispatch } from 'react-redux';
 import { updateDrawingSession } from '@src/features/slices/summaryResultsSlice';
+import RandomLetterDisplay from '@src/components/RandomLetterDisplay';
 
 const DrawingScreen = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const DrawingScreen = () => {
 
   return (
     <View style={styles.container}>
-      <RoundLetterArea {...{ letter, setLetter }} raffleDisabled={isLoading} />
+      <RandomLetterDisplay {...{ letter, setLetter }} raffleDisabled={isLoading} />
       <Canvas OCRTrigger={handleOCR} isLoading={isLoading} />
     </View>
   );

@@ -5,13 +5,13 @@ import { generateRandomLetter } from '@src/utils';
 import { Button } from 'react-native-paper';
 import useAppTheme from '@src/hooks/useAppTheme';
 
-type RoundLetterAreaProps = {
+type RandomLetterDisplayProps = {
   letter: string;
   setLetter: (char: string) => void;
   raffleDisabled?: boolean;
 };
 
-const RoundLetterArea = ({ letter, setLetter, raffleDisabled }: RoundLetterAreaProps) => {
+const RandomLetterDisplay = ({ letter, setLetter, raffleDisabled }: RandomLetterDisplayProps) => {
   const theme = useAppTheme();
 
   const handleRoundLetter = () => setLetter(generateRandomLetter());
@@ -30,7 +30,7 @@ const RoundLetterArea = ({ letter, setLetter, raffleDisabled }: RoundLetterAreaP
   );
 };
 
-export default RoundLetterArea;
+export default RandomLetterDisplay;
 
 const styles = StyleSheet.create({
   container: {
