@@ -27,3 +27,28 @@ export const showToast = (type: Omit<ToastType, 'info'>) => {
       return Toast.show(FAILURE_TOAST_PARAMS);
   }
 };
+
+export function camelCaseToTitle(camelCase: string): string {
+  // Split the string at each point a lowercase letter is followed by an uppercase letter
+  const result = camelCase.replace(/([a-z])([A-Z])/g, '$1 $2');
+  // Capitalize the first letter of each word
+  return result.replace(/\b[a-z]/g, (char) => char.toUpperCase());
+}
+
+export const formatDate = (dateString: string) => {
+  try {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      day: '2-digit',
+      month: '2-digit',
+      year: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    };
+    return new Intl.DateTimeFormat('en-GB', options).format(date);
+  } catch (err) {
+    console.log(err);
+    return '';
+  }
+};

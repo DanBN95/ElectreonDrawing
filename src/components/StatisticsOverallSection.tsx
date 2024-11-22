@@ -43,6 +43,7 @@ export default StatisticsOverallSection;
 const styles = StyleSheet.create({
   mainContainer: {
     rowGap: 16,
+    flex: 1,
   },
   sectionTitleContainer: {
     borderBottomWidth: 1,

@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@src/app/store';
+import { formatDate } from '@src/utils';
 
 type SummarySessionType = {
+  id: string;
   timestamp: string; // ISO Date
   attemptedLetter: string;
   attemptOutcome: 'success' | 'error';
@@ -34,6 +36,12 @@ const summaryResultsSlice = createSlice({
 });
 
 export const selectSummaryResults = (state: RootState) => state.summaryResults;
+export const selectResultsTable = createSelector(selectSummaryResults, (summaryResults) => {
+  return summaryResults.results.map((result) => ({
+    ...result,
+    timestamp: formatDate(result.timestamp),
+  }));
+});
 
 export const { updateDrawingSession } = summaryResultsSlice.actions;
 

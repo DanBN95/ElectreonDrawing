@@ -19,9 +19,10 @@ const DrawingScreen = () => {
     [uploadImage],
   );
 
-  const updateRecognitionResult = (attemptOutcome: 'success' | 'error') => {
+  const updateRecognitionResult = (attemptOutcome: 'success' | 'error', sessionId: string) => {
     dispatch(
       updateDrawingSession({
+        id: sessionId,
         timestamp: new Date().toISOString(),
         attemptedLetter: letter,
         attemptOutcome,
@@ -33,11 +34,11 @@ const DrawingScreen = () => {
     if (data) {
       if (data?.data?.trim() === letter.trim()) {
         showToast('success');
-        updateRecognitionResult('success');
+        updateRecognitionResult('success', data?.id);
         setLetter(generateRandomLetter());
       } else {
         showToast('error');
-        updateRecognitionResult('error');
+        updateRecognitionResult('error', data?.id);
       }
     }
 
