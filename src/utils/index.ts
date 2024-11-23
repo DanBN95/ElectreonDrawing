@@ -1,3 +1,4 @@
+import { SummarySessionType } from '@src/features/slices/summaryResultsSlice';
 import Toast, { ToastShowParams, ToastType } from 'react-native-toast-message';
 
 export const generateRandomLetter = () => {
@@ -51,4 +52,17 @@ export const formatDate = (dateString: string) => {
     console.log(err);
     return '';
   }
+};
+
+export const getStatisticsTableColumns = (
+  resultsTable: SummarySessionType[],
+): { key: keyof Omit<SummarySessionType, 'id'>; displayName: string }[] => {
+  if (resultsTable.length === 0) return [];
+
+  return Object.keys(resultsTable[0])
+    .filter((key) => key !== 'id')
+    .map((key) => ({
+      key: key as keyof Omit<SummarySessionType, 'id'>,
+      displayName: camelCaseToTitle(key),
+    }));
 };

@@ -2,7 +2,7 @@ import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@src/app/store';
 import { formatDate } from '@src/utils';
 
-type SummarySessionType = {
+export type SummarySessionType = {
   id: string;
   timestamp: string; // ISO Date
   attemptedLetter: string;
@@ -26,7 +26,7 @@ const summaryResultsSlice = createSlice({
   initialState,
   reducers: {
     updateDrawingSession: (state, action: PayloadAction<SummarySessionType>) => {
-      state.results.push(action.payload);
+      state.results.unshift(action.payload);
       state.overallAttempts = state.overallAttempts + 1;
       if (action.payload.attemptOutcome === 'success') {
         state.successRate = state.successRate + 1;

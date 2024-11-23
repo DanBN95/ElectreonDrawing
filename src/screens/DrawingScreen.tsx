@@ -31,7 +31,7 @@ const DrawingScreen = () => {
         Alert.alert('Something went wrong', 'Please try again later');
       }
     },
-    [uploadImage],
+    [uploadImage, letter],
   );
 
   const updateRecognitionResult = (attemptOutcome: 'success' | 'error', sessionId: string) => {

@@ -4,19 +4,12 @@ import StatisticsOverallSection from '@src/components/StatisticsOverallSection';
 import { useSelector } from 'react-redux';
 import { selectResultsTable, selectSummaryResults } from '@src/features/slices/summaryResultsSlice';
 import Table from '@src/components/Table';
-import { camelCaseToTitle } from '@src/utils';
+import { getStatisticsTableColumns } from '@src/utils';
 
 const StatisticsScreen = () => {
   const summaryResults = useSelector(selectSummaryResults);
   const resultsTable = useSelector(selectResultsTable);
-  const tableColumns = resultsTable
-    ? (Object.keys(summaryResults.results) as (keyof (typeof summaryResults.results)[0])[]).map(
-        (key) => ({
-          key,
-          displayName: camelCaseToTitle(key),
-        }),
-      )
-    : [];
+  const tableColumns = getStatisticsTableColumns(resultsTable);
   return (
     <View style={styles.container}>
       <StatisticsOverallSection
