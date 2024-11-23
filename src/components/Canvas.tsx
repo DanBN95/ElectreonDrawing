@@ -27,6 +27,7 @@ const Canvas = ({ OCRTrigger, isLoading }: CanvasProps) => {
         quality: 1.0,
         result: 'base64',
       });
+      onRemoveEntirely();
       OCRTrigger(base64);
     } catch (err) {
       console.log('capture image went wrong', err);

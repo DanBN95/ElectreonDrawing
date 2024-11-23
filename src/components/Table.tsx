@@ -6,7 +6,7 @@ import useAppTheme from '@src/hooks/useAppTheme';
 
 type TableProps<K> = {
   data: K[];
-  columns: { key: keyof K; displayName: string }[];
+  columns: { key: keyof Omit<K, 'id'>; displayName: string }[];
 };
 
 const ITEM_PER_PAGE = 4;
@@ -72,7 +72,19 @@ const Table = <K extends { id: string }>({ data, columns }: TableProps<K>) => {
                     key={index}
                     numeric={typeof item[col.key] === 'number'}
                   >
-                    {item[col.key] as React.ReactNode}
+                    <BaseText
+                      variant="bodyMedium"
+                      style={{
+                        color:
+                          item[col.key] === 'success'
+                            ? theme.colors.successColor
+                            : item[col.key] === 'error'
+                              ? theme.colors.errorColor
+                              : theme.colors.defaultCellColor,
+                      }}
+                    >
+                      {item[col.key] as React.ReactNode}
+                    </BaseText>
                   </DataTable.Cell>
                 ))}
               </DataTable.Row>
