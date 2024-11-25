@@ -1,5 +1,6 @@
 import { OCR_API_KEY } from '@env';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import uuid from 'react-native-uuid';
 
 const OCR_BASE_URL = 'https://ck56l1mg01.execute-api.eu-west-1.amazonaws.com/Prod/process';
 
@@ -29,7 +30,7 @@ export const optCharRecognitionApi = createApi({
       transformResponse: (response: { data: string; message: string }) => {
         return {
           ...response,
-          id: crypto.randomUUID(),
+          id: uuid.v4(),
         };
       },
     }),
